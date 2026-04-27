@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 require_once 'config.php';
+$admin_password = 'Digital2026';
 $project_name = 'Lash Art Academy';
 $reminder_template = "Ciao {NOME}, ti scriviamo dalla Lash Art Academy.\n\nNei giorni scorsi abbiamo provato a contattarti al telefono ma non siamo riusciti a raggiungerti. Ti eri candidata per partecipare al nostro corso di extension ciglia e volevamo ricordarti che la promozione attiva scade tra 2 giorni.\n\nSe sei ancora interessata, rispondi a questo messaggio indicandoci un orario comodo: ti richiameremo volentieri per fissare una chiamata e spiegarti tutti i dettagli del corso. Proveremo comunque a ricontattarti noi nei prossimi giorni, prima della scadenza della promozione.\n\nGrazie e a presto!";
 function wa_link($phone, $text='') {
