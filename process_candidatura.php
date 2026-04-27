@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'lib.php';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: index.html'); exit; }
 
 $corso = trim($_POST['corso'] ?? 'lash-art-academy');
@@ -16,8 +17,9 @@ $scala = trim($_POST['scala'] ?? '');
 if (empty($nome) || empty($cognome) || empty($telefono)) { header('Location: index.html'); exit; }
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO candidature (corso, nome, cognome, telefono, email, citta, metodo_pagamento, indirizzo, cap, scala) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$corso, $nome, $cognome, $telefono, $email, $citta, $metodo, $indirizzo, $cap, $scala]);
+    $auto_assigned = pickOperator($pdo);
+    $stmt = $pdo->prepare("INSERT INTO candidature (corso, nome, cognome, telefono, email, citta, metodo_pagamento, indirizzo, cap, scala, assegnato) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$corso, $nome, $cognome, $telefono, $email, $citta, $metodo, $indirizzo, $cap, $scala, $auto_assigned ?? '']);
     $id = $pdo->lastInsertId();
     header("Location: grazie.php?id=$id");
 } catch (PDOException $e) {
