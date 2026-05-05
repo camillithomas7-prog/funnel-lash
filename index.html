@@ -579,12 +579,10 @@ fbq('track', 'PageView');
         <div class="fg"><label>CAP</label><input type="text" name="cap" required placeholder="Es. 00100" maxlength="5"></div>
         <div class="fg"><label>Scala / Interno</label><input type="text" name="scala" placeholder="Es. Scala B, Int. 3"></div>
       </div>
+      <input type="hidden" name="metodo_pagamento" value="contrassegno">
       <div class="fg">
         <label>Metodo di pagamento</label>
-        <div class="pay-choice">
-          <label class="pay-opt"><input type="radio" name="metodo_pagamento" value="bonifico"><div class="pay-opt__box"><span class="pay-opt__icon">&#127974;</span><div><strong>Bonifico Bancario</strong><small>Paghi subito, accesso immediato via email</small></div></div></label>
-          <label class="pay-opt"><input type="radio" name="metodo_pagamento" value="contrassegno" checked><div class="pay-opt__box"><span class="pay-opt__icon">&#128230;</span><div><strong>Pagamento alla Consegna</strong><small>Ricevi il materiale a casa, paghi 50&euro; al corriere</small></div></div></label>
-        </div>
+        <div class="pay-opt"><div class="pay-opt__box" style="border-color:var(--gold);background:var(--gold-light)"><span class="pay-opt__icon">&#128230;</span><div><strong>Pagamento alla Consegna</strong><small>Ricevi la lettera con il QR Code a casa e paghi 50&euro; al corriere</small></div></div></div>
       </div>
       <button type="submit" class="cta" style="width:100%">Completa l'iscrizione — 50&euro; invece di 299&euro;</button>
       <div class="cta-sub">Accesso immediato dopo il pagamento</div>
